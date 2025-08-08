@@ -13,6 +13,13 @@ Possible datasets that can be used for the study
 2. ESOL, solubility (regression)
 3. Ames data, mutagenicity (classification, might be able to use the data from [this study](https://doi.org/10.1021/acs.chemrestox.4c00466))
 
+## Ideas for Analysis
+
+1. Comparison with existing methods (shap package, EdgeShaper)
+2. "Optimization" of compounds: replace R-groups which have a negative contribution with groups that have a positive one
+3. Detection of toxicophores (for the Ames dataset)
+4. Analysis of sampling efficiency: Do we need to sample all possible subsets or is it enough to only sample the layer 1 coalitions?
+
 ## Implementation
 
 ### Molecular Representations
