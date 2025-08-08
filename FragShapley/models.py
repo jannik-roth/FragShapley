@@ -8,6 +8,11 @@ from torch_geometric.nn import GCNConv
 from torch_geometric.data import Data
 
 class GCNBase(L.LightningModule):
+    """
+    Base Class for GCN
+
+    Will be used later to build the Regressor and Classifier variant
+    """
     def __init__(self, 
                  node_feat_in: int = 9, 
                  n_conv_layers: int = 3, 
@@ -46,6 +51,10 @@ class GCNBase(L.LightningModule):
         self.lr = lr
     
     def _to_latent(self, graph):
+        """
+        Helper function which sends the graph to latent space thourgh all convolutional
+        layers, the pooling layer, and the final linear layers
+        """
         # trough the conv layers
         l = F.relu(self.conv_layers[0](graph.x.float(), graph.edge_index))
         for layer in self.conv_layers[1:]:
@@ -63,13 +72,19 @@ class GCNBase(L.LightningModule):
         return optimizer
 
     def get_empty_graph(self, n_nodes=1):
-        # return an empty graph with n_nodes and no edges
-        # needed to get the baseline of our model
+        """
+        Returns an "empty" graph which is compatible with the current architecture
+
+        An "empty" graph in this case is a graph with n_nodes nodes and no edges
+        """
         eg = Data(x=torch.zeros(size=(n_nodes, self.node_feat_in), dtype=torch.float),
                 edge_index=torch.zeros(size=(2, 0), dtype=torch.long))
         return eg
 
 class GCNRegressor(GCNBase):
+    """
+    Implements a GCN Regressor based on GCNBase
+    """
     def __init__(self, 
                  node_feat_in: int = 9, 
                  n_conv_layers: int = 3, 
@@ -92,21 +107,32 @@ class GCNRegressor(GCNBase):
         self.name = 'GCNRegressor'
     
     def training_step(self, batch, batch_idx):
+        """
+        Implements the training step for lightning
+        """
         graph, y = batch
-        l = self._to_latent(graph)
-        l = self.out_layer(l)
+        l = self._to_latent(graph) # latent representation
+        l = self.out_layer(l) # to final outcome
         loss = self.loss_fn(torch.squeeze(l, 1), y.float())
         self.log('train_loss', loss, batch_size=len(batch))
         return loss
     
     def predict_step(self, batch, batch_idx):
-        graph, _ = batch
-        l = self._to_latent(graph)
-        # final
-        l = self.out_layer(l)
+        """
+        Implements the predict step for lightning
+
+        similar to training_step
+        """
+        graph, _ = batch # we do not care about the label here
+        l = self._to_latent(graph) # latent representation
+        l = self.out_layer(l) # to final outcome
         return l
 
 class GCNClassifier(GCNBase):
+    """
+    Implements a GCN Classifier based on GCNBase
+    Note: Only works for binary classification
+    """
     def __init__(self, 
                  node_feat_in: int = 9, 
                  n_conv_layers: int = 3, 
@@ -129,16 +155,18 @@ class GCNClassifier(GCNBase):
         self.name = 'GCNClassifier'
     
     def training_step(self, batch, batch_idx):
+        """
+        Implements the training step for lightning
+        """
         graph, y = batch
-        l = self._to_latent(graph)
+        l = self._to_latent(graph) # to latent
         l = self.out_layer(l) # here we have logits
-        loss = self.loss_fn(torch.squeeze(l, 1), y.float())
+        loss = self.loss_fn(torch.squeeze(l, 1), y.float()) # use logits for the loss
         self.log('train_loss', loss, batch_size=len(batch))
         return loss
     
     def predict_step(self, batch, batch_idx):
         graph, _ = batch
-        l = self._to_latent(graph)
-        # final
+        l = self._to_latent(graph) # to latent
         l = self.out_layer(l) # here we have logits
         return torch.nn.functional.sigmoid(l) # convert to probabilities using Sigmoid
