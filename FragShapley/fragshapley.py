@@ -129,7 +129,7 @@ def proba_to_logit(proba, eps=1e-6):
     """
     Converts probabilities to logits space. Uses eps to avoid division by zero
     """
-    return np.log(1./(1. - proba + eps))
+    return np.log(proba/(1. - proba + eps) + eps) # to avoid division by zero, and to avoid log(0)
 
 class FragmentExplainer():
     """
