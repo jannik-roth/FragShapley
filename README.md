@@ -9,7 +9,7 @@ FragShapley implements the calculation of exact Shapley values for molecular str
 ## Datasets
 Possible datasets that can be used for the study
 
-1. ChEMBL: potency prediction (regression), activity prediction (classification, active vs. random compounds)
+1. ChEMBL: potency prediction (regression), activity prediction (classification, active vs. random compounds) -> Maybe look for alternative
 2. ESOL, solubility (regression)
 3. Ames data, mutagenicity (classification, might be able to use the data from [this study](https://doi.org/10.1021/acs.chemrestox.4c00466))
 
@@ -33,9 +33,3 @@ The method supports the following models currently:
 
 1. scikit-learn regressors/classifiers
 2. GCN
-
-### Models to implements
-The following model types are planned to be implemented
-
-1. MPNN
-2. different variants of GNNs
