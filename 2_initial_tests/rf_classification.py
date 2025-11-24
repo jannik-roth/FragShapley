@@ -9,7 +9,7 @@ import argparse
 import sys
 import os
 
-sys.path.append('/home/jproth/Documents/03_work/x_submarine/10_fragShap')
+sys.path.append('/home/jannik/Documents/studies/phd/03_work/20_FragShapley/FragShapley/')
 import FragShapley
 
 import yaml
@@ -110,7 +110,8 @@ def main(param_file):
 
             y_pred = best_clf.predict(fps_test)
             y_pred_proba = best_clf.predict_proba(fps_test)[:, 1]
-            rows_performance.append({'dataset': classification_dataset,
+            rows_performance.append({'model': 'RF',
+                                     'dataset': classification_dataset,
                                      'split': split,
                                      'best_params': gridCV.best_params_,
                                      'train_index': train_index,
@@ -144,7 +145,8 @@ def main(param_file):
             shap_ev = shap_explainer.expected_value[1] # only for "active" class
 
 
-            results = {'dataset': classification_dataset,
+            results = {'model': 'RF',
+                       'dataset': classification_dataset,
                        'split': split,
                        'smiles': smiles_test,
                        'y_true': y_test,

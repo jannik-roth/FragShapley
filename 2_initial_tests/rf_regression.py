@@ -9,7 +9,7 @@ import argparse
 import sys
 import os
 
-sys.path.append('/home/jproth/Documents/03_work/x_submarine/10_fragShap')
+sys.path.append('/home/jannik/Documents/studies/phd/03_work/20_FragShapley/FragShapley/')
 import FragShapley
 
 import yaml
@@ -109,7 +109,8 @@ def main(param_file):
 
             # performance metrics
             y_pred = best_regr.predict(fps_test)
-            rows_performance.append({'dataset': regression_dataset,
+            rows_performance.append({'model': 'RF',
+                                     'dataset': regression_dataset,
                                      'split': split,
                                      'best_params': gridCV.best_params_,
                                      'train_index': train_index,
@@ -139,7 +140,8 @@ def main(param_file):
             shap_expl = [i for i in shap_expl]
             shap_ev = shap_explainer.expected_value
 
-            results = {'dataset': regression_dataset,
+            results = {'model': 'RF',
+                       'dataset': regression_dataset,
                        'split': split,
                        'smiles': smiles_test,
                        'y_true': y_test,
