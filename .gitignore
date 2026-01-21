@@ -8,6 +8,12 @@ _*
 1_*
 2_*
 
+# original data files
+esol_delaney.csv
+mobley_database.txt
+mutagenicity.xls
+ci900161g_si_001/
+
 # models, logs, and checkpoints
 lightning_logs/
 
