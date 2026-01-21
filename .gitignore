@@ -5,9 +5,12 @@
 # folders for testing
 x_*
 _*
+1_*
+2_*
 
 # models, logs, and checkpoints
 lightning_logs/
 
 # from python
 *.pyc
+.venv/
