@@ -1,0 +1,25 @@
+general:
+  regression_datasets: ['esol_delaney']
+  path_to_regression_datasets: '/home/jannikroth/work/20_FragShapley/FragShapley/0_datasets/regression/'
+  smiles_column: 'nonstereo_aromatic_smiles'
+  y_column: 'solubility'
+  n_cv: 5
+
+  expected_value: 'empty'
+
+  random_state: 42
+
+  results_folder: 'mpnn_regression_solubility'
+
+MPNN:
+  mpnnr_model_parameter: {n_fc_layers: 2,  
+                          fc_hidden: 256,
+                          message_passing_steps: 3,
+                          dropout: 0.2, 
+                          lr: 0.0002,
+                          edge_feat_hidden: 64,
+                          node_feat_hidden: 32,
+                          }
+  accelerator: 'auto'
+  max_epochs: 100
+  batch_size: 8

@@ -1,0 +1,20 @@
+general:
+  regression_datasets: ['esol_delaney']
+  path_to_regression_datasets: '/home/jannikroth/work/20_FragShapley/FragShapley/0_datasets/regression/'
+  smiles_column: 'nonstereo_aromatic_smiles'
+  y_column: 'solubility'
+  n_cv: 5
+  n_hyperopt: 5
+
+  fpSize: 2048
+  radius: 2
+  expected_value: 'empty'
+
+  random_state: 42
+
+  results_folder: 'rf_regression_solubility'
+
+random_forest:
+  rfr_parameter_grid: {'n_estimators': [25, 50, 100, 200, 400],
+                       'min_samples_leaf': [1, 2, 5, 10],
+                       'min_samples_split': [2, 3, 5, 10],}

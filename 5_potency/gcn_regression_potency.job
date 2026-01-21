@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#SBATCH -J "gcn_potency"                 # job name
+#SBATCH -o log.%j.out                    # output file
+#SBATCH -e err.%j.out                    # error file
+
+#SBATCH -p cn                            # partition: "cn" => CPU, "gn" => GPU
+#SBATCH -N 1				 # number of nodes
+#SBATCH -n 1				 # number of tasks
+#SBATCH -c 4	     		         # number of cores per task
+#SBATCH --mem 20G			 # requested RAM, e.g., "20G" for 20 GB
+# SBATCH --gpus 1                        # requested number of GPUs
+
+
+#SBATCH --time 72:00:00			 # requested time, HH:MM:SS
+
+# load python
+module purge
+module load linux-rocky8-x86_64/gcc/12.2.0/python/3.11.9-ofsncoj
+
+# activate venv
+source /home/jannikroth/work/20_FragShapley/FragShapley/venv/bin/activate
+
+# start python job
+python -u gcn_regression_fixed_split.py -p params_potency_GCN.yaml > gcn_regression_potency.out

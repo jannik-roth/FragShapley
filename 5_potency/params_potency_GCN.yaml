@@ -1,0 +1,22 @@
+general:
+  regression_datasets: ['SARS', 'MERS']
+  path_to_regression_datasets: '/home/jannikroth/work/20_FragShapley/FragShapley/0_datasets/regression/'
+  smiles_column: 'canonical_smiles'
+  y_column: 'pIC50'
+  set_column: 'set'
+
+  expected_value: 'empty'
+
+  random_state: 42
+
+  results_folder: 'gcn_regression_potency'
+
+GCN:
+  gcnr_model_parameter: {n_conv_layers: 3, 
+                         n_fc_layers: 3, 
+                         node_feat_hidden: 256, 
+                         fc_hidden: 512,
+                         lr: 0.0002}
+  accelerator: 'auto'
+  max_epochs: 150
+  batch_size: 8

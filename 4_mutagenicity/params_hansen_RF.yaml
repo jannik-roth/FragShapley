@@ -1,0 +1,20 @@
+general:
+  classification_datasets: ['Hansen']
+  path_to_classification_datasets: '/home/jannikroth/work/20_FragShapley/FragShapley/0_datasets/classification/'
+  smiles_column: 'nonstereo_aromatic_smiles'
+  y_column: 'mutagenicity'
+  n_cv: 5
+  n_hyperopt: 5
+
+  fpSize: 2048
+  radius: 2
+  expected_value: 'empty'
+
+  random_state: 42
+
+  results_folder: 'rf_classification_hansen'
+
+random_forest:
+  rfc_parameter_grid: {'n_estimators': [25, 50, 100, 200, 400],
+                       'min_samples_leaf': [1, 2, 5, 10],
+                       'min_samples_split': [2, 3, 5, 10],}

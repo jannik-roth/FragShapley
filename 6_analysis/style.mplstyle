@@ -1,0 +1,16 @@
+text.color: black
+
+axes.facecolor:     white   # axes background color
+axes.edgecolor:     black   # axes edge color
+                             # text.color as default value
+axes.labelcolor:    black
+
+# 2.4 muted color scheme from https://cran.r-project.org/web/packages/khroma/vignettes/tol.html
+axes.prop_cycle : cycler(color=["#cc6677", "#332288", "#ddcc77", "#117733", "#88ccee", "#882255", "#44AA99", "#999933", "#aa4499", "#dddddd"])
+
+
+xtick.color:         black   # color of the ticks
+ytick.color:         black   # color of the ticks
+
+figure.facecolor:   white     # figure face color
+figure.edgecolor:   white     # figure edge color

@@ -1,0 +1,19 @@
+general:
+  classification_datasets: ['Hansen']
+  path_to_classification_datasets: '/home/jannikroth/work/20_FragShapley/FragShapley/0_datasets/classification/'
+  smiles_column: 'nonstereo_aromatic_smiles'
+  y_column: 'mutagenicity'
+  n_cv: 5
+  expected_value: 'empty'
+  random_state: 42
+  results_folder: 'gcn_classification_hansen'
+
+GCN:
+  gcnc_model_parameter: {n_conv_layers: 3, 
+                         n_fc_layers: 2, 
+                         node_feat_hidden: 256, 
+                         fc_hidden: 256,
+                         lr: 0.001}
+  accelerator: 'auto'
+  max_epochs: 125
+  batch_size: 8 

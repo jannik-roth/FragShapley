@@ -182,6 +182,17 @@ class FragmentExplainer():
                 self.model_predict_proba = self.predict_pytorch_geometric_helper
             else:
                 raise ValueError("I can not identify the task (Regression/Classification)!")
+        elif 'MPNN' in str(type(model)):
+            self.model = model
+            self.model_origin = 'torch'
+            self.model_predict = self.predict_pytorch_geometric_helper # helper function
+            if 'Regressor' in self.model.__repr__():
+                self.task = 'regression'
+            elif 'Classifier' in self.model.__repr__(): # classifier outputs proba (through predict step with sigmoid as final step)
+                self.task = 'classification'
+                self.model_predict_proba = self.predict_pytorch_geometric_helper
+            else:
+                raise ValueError("I can not identify the task (Regression/Classification)!")
         else:
             raise ValueError('I can not work with this model :(')
         
@@ -349,6 +360,7 @@ class FragmentExplainer():
         Gets the output of the inputs, and replaces the output with the expected value if the size of the coalition is zero
         """
         out = self.model.predict(inputs)
+        print(inputs, out)
         return FragmentExplainer.mask_empty_coalition_value(out, coalitions, self.expected_value)
     
     def predict_proba_sklearn_helper(self, inputs, coalitions):
@@ -363,9 +375,14 @@ class FragmentExplainer():
     @staticmethod
     def mask_empty_coalition_value(out, coalitions, expected_value):
         """
-        Replaces the output value with the expected value if the size of the coalition is zero
+        Replaces the output value with the expected value if the size of the coalition is zero.
+        This is due to the fact that the model returns nothing if only an empty graph is provided and the batch size is zero.
+        Then we need to return the expected value. If the batch size is larger than zero, an empty graph returns a value which
+        is replaced with the expected value here.
         """
-        size_coaltions = np.array([len(c) for c in coalitions])
-        #print(out.shape, size_coaltions.shape)
-        out[size_coaltions == 0] = expected_value
-        return out
+        size_coalitions = np.array([len(c) for c in coalitions])
+        if len(out) == 0:
+            return np.array([expected_value])
+        else:
+            out[size_coalitions == 0] = expected_value
+            return out
