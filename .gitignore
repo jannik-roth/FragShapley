@@ -3,7 +3,7 @@
 *.pkl
 
 # folders for testing
-x_*
+xx_*
 _*
 1_*
 2_*
