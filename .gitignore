@@ -4,6 +4,7 @@
 
 # folders for testing
 x_*
+_*
 
 # models, logs, and checkpoints
 lightning_logs/
