@@ -1,6 +1,6 @@
 # Explanations for Molecular Property Predictions Using Shapley Values of Fragments
 
-This repository contains the code for the ??? "Explanations for Molecular Property Predictions Using Shapley Values of Fragments".
+This repository contains the code for the publication "Explanations for Molecular Property Predictions Using Shapley Values of Fragments".
 
 ## Structure of the Repository
 
@@ -12,3 +12,4 @@ This repository contains the code for the ??? "Explanations for Molecular Proper
   - `figures/` contains the figures created by running the analysis scripts
     - `final_figures/` contains the final figures used in the publication (assembled externally with a vector graphics editor)
 - `requirements.txt` is the file created by running `pip freeze > requirements.txt` with the venv activated. Can be used to create a new virtual environment.
+- `FragShapley/` contains all the code to run the fragment-based Shapley value approach introduced in the publication.
