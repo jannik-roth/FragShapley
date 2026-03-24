@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:rdkit="http://www.rdkit.org/xml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" xml:space="preserve" width="87px" height="49px" viewBox="0 0 87 49">
+<!-- END OF HEADER -->
+<path class="bond-0 atom-0 atom-1" d="M 9.2,15.4 L 31.7,2.5" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+<path class="bond-1 atom-1 atom-2" d="M 31.7,2.5 L 57.0,17.1" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+<path class="bond-2 atom-2 atom-3" d="M 57.0,17.1 L 82.3,2.5" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+<path class="bond-3 atom-2 atom-4" d="M 57.0,17.1 L 57.0,46.4" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+<path d="M 30.5,3.1 L 31.7,2.5 L 32.9,3.2" style="fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;"/>
+<path class="atom-0" d="M 4.7 16.2 L 6.0 15.0 L 4.3 14.6 L 4.6 13.8 L 6.1 14.6 L 5.9 12.9 L 6.7 12.9 L 6.5 14.5 L 8.0 13.8 L 8.3 14.6 L 6.6 14.9 L 7.8 16.2 L 7.1 16.7 L 6.3 15.2 L 5.5 16.7 L 4.7 16.2 " fill="#000000"/>
+</svg>
