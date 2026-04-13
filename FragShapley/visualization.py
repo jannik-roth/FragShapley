@@ -197,7 +197,6 @@ def visualize_contributions_from_mol(mol,
 def get_atom_contribution_from_result_dict(smiles, results_dict, frag_to_atom_ids):
     '''
         Converts the contribution per fragment to contirbution per atom by assining each atom in the molecule the contribution of the whole fragment
-        ###ADD NORMALIZATION!!!!###
 
         input:
             smiles: str, SMILES of the whole molecule
