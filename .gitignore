@@ -1,6 +1,5 @@
 # any large dataframes, might be too large
 *.tsv.gz
-*.pkl
 
 # folders for testing
 xx_*
