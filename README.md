@@ -1,6 +1,6 @@
-# Explanations for Molecular Property Predictions Using Shapley Values of Fragments
+# Chemically Interpretable Explanations for Molecular Property Prediction via Fragment-Level Shapley Values
 
-This repository contains the code for the publication "Explanations for Molecular Property Predictions Using Shapley Values of Fragments".
+This repository contains the code for the pre-print "Chemically Interpretable Explanations for Molecular Property Prediction via Fragment-Level Shapley Values".
 
 ## Structure of the Repository
 
