@@ -1,6 +1,6 @@
 # Chemically Interpretable Explanations for Molecular Property Prediction via Fragment-Level Shapley Values
 
-This repository contains the code for the pre-print "Chemically Interpretable Explanations for Molecular Property Prediction via Fragment-Level Shapley Values".
+This repository contains the code for the pre-print "Chemically Interpretable Explanations for Molecular Property Prediction via Fragment-Level Shapley Values" published on ChemRxiv under [10.26434/chemrxiv.15002302/v1](https://doi.org/10.26434/chemrxiv.15002302/v1).
 
 ## Structure of the Repository
 
